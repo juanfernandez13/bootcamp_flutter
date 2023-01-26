@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:trilhaapp/model/dados_cadastrais_model.dart';
+import 'package:trilhaapp/model/hive/dados_cadastrais_model.dart';
 
 class DadosCadastraisRepository {
   static late Box _box;

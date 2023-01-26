@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/model/hive_tarefa.dart';
+import 'package:trilhaapp/model/hive/hive_tarefa.dart';
 import 'package:trilhaapp/model/sqlite_tarefas_model.dart';
-import 'package:trilhaapp/repositories/hive_tarefa_repository.dart';
+import 'package:trilhaapp/repositories/hive/hive_tarefa_repository.dart';
 import 'package:trilhaapp/repositories/sqlite/sqlite_tarefas_repository.dart';
 
 class SQLTarefasPage extends StatefulWidget {

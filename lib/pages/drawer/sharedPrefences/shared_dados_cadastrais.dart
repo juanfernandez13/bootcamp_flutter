@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:trilhaapp/repositories/linguagens_repository.dart';
-import 'package:trilhaapp/repositories/nivel_repository.dart';
+import 'package:trilhaapp/repositories/mockados/linguagens_repository.dart';
+import 'package:trilhaapp/repositories/mockados/nivel_repository.dart';
 import 'package:trilhaapp/services/app_storage.dart';
 import 'package:trilhaapp/shared/widgets/text_label_cadastro.dart';
 

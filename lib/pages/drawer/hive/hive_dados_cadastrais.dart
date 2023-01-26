@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/model/dados_cadastrais_model.dart';
-import 'package:trilhaapp/repositories/dados_cadastrais_repository.dart';
-import 'package:trilhaapp/repositories/linguagens_repository.dart';
-import 'package:trilhaapp/repositories/nivel_repository.dart';
+import 'package:trilhaapp/model/hive/dados_cadastrais_model.dart';
+import 'package:trilhaapp/repositories/hive/dados_cadastrais_repository.dart';
+import 'package:trilhaapp/repositories/mockados/linguagens_repository.dart';
+import 'package:trilhaapp/repositories/mockados/nivel_repository.dart';
 import 'package:trilhaapp/shared/widgets/text_label_cadastro.dart';
 
 class HiveDadosCadastraisPage extends StatefulWidget {

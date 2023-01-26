@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:trilhaapp/model/viacep_model.dart';
-import 'package:trilhaapp/repositories/viacep_repository.dart';
+import 'package:trilhaapp/repositories/http/viacep_repository.dart';
 
 class HttpPage extends StatefulWidget {
   const HttpPage({super.key});

@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import '../model/hive_tarefa.dart';
+import '../../model/hive/hive_tarefa.dart';
 
 class HiveTarefaRepository {
   static late Box _box;

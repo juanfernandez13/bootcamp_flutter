@@ -40,6 +40,7 @@ dependencies:
   shared_preferences: ^2.0.16
   hive: ^2.2.3
   sqflite: ^2.2.3
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:

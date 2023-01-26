@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/pages/drawer/post_page.dart';
+import 'package:trilhaapp/pages/drawer/http/post_page.dart';
 import 'package:trilhaapp/pages/drawer/sharedPrefences/shared_config_page.dart';
 import 'package:trilhaapp/pages/drawer/hive/hive_config_page.dart';
 import 'package:trilhaapp/pages/login_page.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/pages/bottomNavigator/cardPage/card_detail_page.dart';
-import 'package:trilhaapp/repositories/card_detail_repository.dart';
+import 'package:trilhaapp/repositories/mockados/card_detail_repository.dart';
 import '../../../model/card_detail.dart';
 
 class CardPage extends StatefulWidget {
