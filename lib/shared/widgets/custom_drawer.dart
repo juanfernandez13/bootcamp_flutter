@@ -4,8 +4,10 @@ import 'package:trilhaapp/pages/drawer/http/post_page.dart';
 import 'package:trilhaapp/pages/drawer/sharedPrefences/shared_config_page.dart';
 import 'package:trilhaapp/pages/drawer/hive/hive_config_page.dart';
 import 'package:trilhaapp/pages/login_page.dart';
+import 'package:trilhaapp/repositories/back4app/back4app_tarefas.dart';
 import 'package:trilhaapp/repositories/marvel/marvel_repository.dart';
 
+import '../../pages/back4app_tarefas_page.dart';
 import '../../pages/drawer/hive/hive_dados_cadastrais.dart';
 import '../../pages/drawer/sharedPrefences/shared_dados_cadastrais.dart';
 
@@ -15,8 +17,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: [
           InkWell(
             onTap: (() {
@@ -201,9 +202,9 @@ class CustomDrawer extends StatelessWidget {
             height: 10,
           ),
           InkWell(
-            onTap: () async {
+            onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (bc) => CharactersPage()));
+                  MaterialPageRoute(builder: (bc) =>const CharactersPage()));
             },
             child: Container(
               padding: const EdgeInsets.only(top: 5, left: 10),
@@ -215,6 +216,27 @@ class CustomDrawer extends StatelessWidget {
                   Icon(Icons.add_home_work),
                   SizedBox(width: 8),
                   Text("Api Marvel")
+                ],
+              ),
+            ),
+          ),
+          const Divider(),
+          const SizedBox(height: 10),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (bc) =>const Back4AppTarefasPage()));
+            },
+            child: Container(
+              padding: const EdgeInsets.only(top: 5, left: 10),
+              alignment: Alignment.centerLeft,
+              height: 30,
+              width: double.infinity,
+              child: Row(
+                children: const [
+                  Icon(Icons.list),
+                  SizedBox(width: 8),
+                  Text("Tarefas Dio")
                 ],
               ),
             ),
