@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/drawer/characters/characters_page.dart';
 import 'package:trilhaapp/pages/drawer/http/post_page.dart';
 import 'package:trilhaapp/pages/drawer/sharedPrefences/shared_config_page.dart';
 import 'package:trilhaapp/pages/drawer/hive/hive_config_page.dart';
 import 'package:trilhaapp/pages/login_page.dart';
+import 'package:trilhaapp/repositories/marvel/marvel_repository.dart';
 
 import '../../pages/drawer/hive/hive_dados_cadastrais.dart';
 import '../../pages/drawer/sharedPrefences/shared_dados_cadastrais.dart';
@@ -176,8 +178,9 @@ class CustomDrawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>const PostPage()));
+                  MaterialPageRoute(builder: (context) => const PostPage()));
             },
             child: Container(
               padding: const EdgeInsets.only(top: 5, left: 10),
@@ -185,7 +188,34 @@ class CustomDrawer extends StatelessWidget {
               height: 30,
               width: double.infinity,
               child: Row(
-                children: const [Icon(Icons.post_add), Text("Postagens")],
+                children: const [
+                  Icon(Icons.post_add),
+                  SizedBox(width: 8),
+                  Text("Postagens")
+                ],
+              ),
+            ),
+          ),
+          const Divider(),
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () async {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (bc) => CharactersPage()));
+            },
+            child: Container(
+              padding: const EdgeInsets.only(top: 5, left: 10),
+              alignment: Alignment.centerLeft,
+              height: 30,
+              width: double.infinity,
+              child: Row(
+                children: const [
+                  Icon(Icons.add_home_work),
+                  SizedBox(width: 8),
+                  Text("Api Marvel")
+                ],
               ),
             ),
           ),

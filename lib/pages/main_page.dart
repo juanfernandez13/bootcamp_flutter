@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           title: const Text("MainPage"),
         ),
-        drawer:const CustomDrawer(),
+        drawer: const CustomDrawer(),
         body: Column(
           children: [
             Expanded(
@@ -46,18 +46,33 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 onTap: ((value) {
-                  pageController.animateToPage(value, duration: const Duration(milliseconds:500 ), curve: Curves.easeInCubic);
+                  var time = (posicaoPage - value) * 500;
+                  pageController.animateToPage(value,
+                      duration: Duration(milliseconds: time.abs()),
+                      curve: Curves.easeInCubic);
                 }),
                 currentIndex: posicaoPage,
                 items: const [
                   BottomNavigationBarItem(
-                      label: "CardPage", icon: Icon(Icons.home, )),
+                      label: "CardPage",
+                      icon: Icon(
+                        Icons.home,
+                      )),
                   BottomNavigationBarItem(
-                      label: "pag1", icon: Icon(Icons.person, )),
+                      label: "pag1",
+                      icon: Icon(
+                        Icons.person,
+                      )),
                   BottomNavigationBarItem(
-                      label: "pag2", icon: Icon(Icons.download, )),
+                      label: "pag2",
+                      icon: Icon(
+                        Icons.download,
+                      )),
                   BottomNavigationBarItem(
-                      label: "pag3", icon: Icon(Icons.add_a_photo_sharp, )),
+                      label: "pag3",
+                      icon: Icon(
+                        Icons.add_a_photo_sharp,
+                      )),
                 ])
           ],
         ),

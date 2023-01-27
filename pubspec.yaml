@@ -41,6 +41,8 @@ dependencies:
   hive: ^2.2.3
   sqflite: ^2.2.3
   dio: ^4.0.6
+  crypto: ^3.0.2
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +76,7 @@ flutter:
     - lib/images/paisagem1.jpg
     - lib/images/paisagem2.jpg
     - lib/images/paisagem3.jpg
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

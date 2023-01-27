@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.blue,
-        textTheme: GoogleFonts.acmeTextTheme(),
+        // textTheme: GoogleFonts.acmeTextTheme(),
       ),
       // home: HomePage(),
       home:const LoginPage(),
