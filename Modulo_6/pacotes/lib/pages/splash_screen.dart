@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   openHome() {
     //forma de gerar o delay da splash screen
     Future.delayed(
-        Duration(seconds: 2),
+        const Duration(seconds: 2),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => const HomePage())));
   }
