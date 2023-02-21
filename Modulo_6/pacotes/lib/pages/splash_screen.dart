@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
           totalRepeatCount: 1,
           displayFullTextOnTap: true,
           stopPauseOnTap: true,
-          pause: const Duration(milliseconds: 100),
+          pause: const Duration(milliseconds: 200),
           onFinished: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (_) => const HomePage()));

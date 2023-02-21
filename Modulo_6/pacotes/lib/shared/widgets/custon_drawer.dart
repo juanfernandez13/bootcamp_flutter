@@ -2,8 +2,8 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pacotes/pages/auto_size.dart';
-import 'package:pacotes/pages/percent_indicator.dart';
+import 'package:pacotes/pages/drawer/auto_size.dart';
+import 'package:pacotes/pages/drawer/percent_indicator.dart';
 
 class CustonDrawer extends StatelessWidget {
   const CustonDrawer({super.key});

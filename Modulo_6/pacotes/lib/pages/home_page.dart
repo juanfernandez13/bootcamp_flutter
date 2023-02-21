@@ -1,9 +1,9 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pacotes/shared/widgets/custon_drawer.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return SafeArea(
         child: Scaffold(
       bottomNavigationBar: ConvexAppBar.badge(
-          const {0: '99+', 1: Icons.assistant_photo, 2: Colors.redAccent},
+          const {0: '99+', 1: Icons.assistant_photo, 4: Colors.greenAccent},
           onTap: (page) => tabController.index = page,
           controller: tabController,
           items: const [
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             TabItem(icon: Icons.map, title: 'Discovery'),
             TabItem(icon: Icons.add, title: 'Add'),
             TabItem(icon: Icons.message, title: 'Message'),
-            TabItem(icon: Icons.people, title: 'Profile'),
+            TabItem(icon: Icons.people, title: 'BR fields'),
           ]),
       drawer: const CustonDrawer(),
       appBar: AppBar(
@@ -60,7 +60,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 color: Colors.red,
               ),
               Container(
-                color: Colors.deepPurple,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration:const InputDecoration(hintText: "Cep"),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        CepInputFormatter(),
+                        ],
+                    )
+                  ],
+                ),
               ),
             ],
           )),
