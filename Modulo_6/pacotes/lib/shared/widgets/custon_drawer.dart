@@ -8,6 +8,7 @@ import 'package:pacotes/pages/drawer/auto_size.dart';
 import 'package:pacotes/pages/drawer/battery_page.dart';
 import 'package:pacotes/pages/drawer/connectivity_plus_page.dart';
 import 'package:pacotes/pages/drawer/device_info_page.dart';
+import 'package:pacotes/pages/drawer/geolocator_page.dart';
 import 'package:pacotes/pages/drawer/percent_indicator.dart';
 import 'package:pacotes/pages/drawer/url_launcher_page.dart';
 
@@ -183,6 +184,25 @@ class CustonDrawer extends StatelessWidget {
                     width: 10,
                   ),
                   Text("Device Info")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const GeolocatorPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.locationPinLock),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("Geolocator")
                 ],
               )),
             ),
