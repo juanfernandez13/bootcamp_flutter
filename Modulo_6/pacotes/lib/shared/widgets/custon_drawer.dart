@@ -1,10 +1,12 @@
 import 'dart:ffi';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:pacotes/pages/drawer/auto_size.dart';
 import 'package:pacotes/pages/drawer/battery_page.dart';
+import 'package:pacotes/pages/drawer/connectivity_plus_page.dart';
 import 'package:pacotes/pages/drawer/device_info_page.dart';
 import 'package:pacotes/pages/drawer/percent_indicator.dart';
 import 'package:pacotes/pages/drawer/url_launcher_page.dart';
@@ -158,6 +160,25 @@ class CustonDrawer extends StatelessWidget {
                   child: Row(
                 children: const [
                   FaIcon(FontAwesomeIcons.circleInfo),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("Device Info")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const ConnectivityPlusPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.wifi),
                   SizedBox(
                     width: 10,
                   ),
