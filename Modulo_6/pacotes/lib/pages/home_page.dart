@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pacotes/pages/bottomBar/br_fields_page.dart';
 import 'package:pacotes/shared/widgets/custon_drawer.dart';
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,6 +43,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       drawer: const CustonDrawer(),
       appBar: AppBar(
         title: const Text("Pacotes"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Share.share("olhem o link https://google.com");
+              },
+              icon: const FaIcon(FontAwesomeIcons.shareNodes)),
+          IconButton(
+              onPressed: () async {
+                var directory = await path_provider.getTemporaryDirectory();
+                debugPrint(directory.toString());
+                directory =
+                    await path_provider.getApplicationSupportDirectory();
+                debugPrint(directory.toString());
+                directory =
+                    await path_provider.getApplicationDocumentsDirectory();
+                debugPrint(directory.toString());
+              },
+              icon: const FaIcon(FontAwesomeIcons.folder)),
+        ],
       ),
       body: Column(
         children: [

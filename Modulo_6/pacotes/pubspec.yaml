@@ -43,6 +43,10 @@ dependencies:
   brasil_fields: ^1.10.0
   intl: ^0.18.0
   battery_plus: ^3.0.3
+  url_launcher: ^6.1.9
+  share_plus: ^6.3.1
+  path_provider: ^2.0.12
+  device_info_plus: ^8.1.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.11.0"

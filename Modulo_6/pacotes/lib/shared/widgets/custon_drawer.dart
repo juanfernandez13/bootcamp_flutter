@@ -5,7 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:pacotes/pages/drawer/auto_size.dart';
 import 'package:pacotes/pages/drawer/battery_page.dart';
+import 'package:pacotes/pages/drawer/device_info_page.dart';
 import 'package:pacotes/pages/drawer/percent_indicator.dart';
+import 'package:pacotes/pages/drawer/url_launcher_page.dart';
 
 class CustonDrawer extends StatelessWidget {
   const CustonDrawer({super.key});
@@ -122,6 +124,44 @@ class CustonDrawer extends StatelessWidget {
                     width: 10,
                   ),
                   Text("Intl")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const UrlLauncherPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.internetExplorer),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("URl Launcher")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const DeviceInfoPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.circleInfo),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("Device Info")
                 ],
               )),
             ),
