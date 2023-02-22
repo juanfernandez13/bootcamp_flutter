@@ -10,6 +10,7 @@ import 'package:pacotes/pages/drawer/connectivity_plus_page.dart';
 import 'package:pacotes/pages/drawer/device_info_page.dart';
 import 'package:pacotes/pages/drawer/geolocator_page.dart';
 import 'package:pacotes/pages/drawer/percent_indicator.dart';
+import 'package:pacotes/pages/drawer/qr_code_page.dart';
 import 'package:pacotes/pages/drawer/url_launcher_page.dart';
 
 class CustonDrawer extends StatelessWidget {
@@ -203,6 +204,25 @@ class CustonDrawer extends StatelessWidget {
                     width: 10,
                   ),
                   Text("Geolocator")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const QrCodePage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.camera),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("QR code")
                 ],
               )),
             ),
