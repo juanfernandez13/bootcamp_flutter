@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pacotes/pages/bottomBar/br_fields_page.dart';
 import 'package:pacotes/shared/widgets/custon_drawer.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 
@@ -59,20 +60,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Container(
                 color: Colors.red,
               ),
-              Container(
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration:const InputDecoration(hintText: "Cep"),
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        CepInputFormatter(),
-                        ],
-                    )
-                  ],
-                ),
-              ),
+              BrFieldsPage()
             ],
           )),
         ],

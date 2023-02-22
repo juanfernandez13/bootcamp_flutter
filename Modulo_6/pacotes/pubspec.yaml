@@ -40,6 +40,8 @@ dependencies:
   auto_size_text: ^3.0.0
   animated_text_kit: ^4.2.2
   convex_bottom_bar: ^3.2.0
+  brasil_fields: ^1.10.0
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.11.0"
