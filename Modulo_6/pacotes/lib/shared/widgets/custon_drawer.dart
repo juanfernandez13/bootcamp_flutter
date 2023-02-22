@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:pacotes/pages/drawer/auto_size.dart';
+import 'package:pacotes/pages/drawer/battery_page.dart';
 import 'package:pacotes/pages/drawer/percent_indicator.dart';
 
 class CustonDrawer extends StatelessWidget {
@@ -62,7 +63,7 @@ class CustonDrawer extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => AutoSizePage()));
+                  context, MaterialPageRoute(builder: (_) => const AutoSizePage()));
             },
             child: Padding(
               padding: const EdgeInsets.all(10),
@@ -70,6 +71,25 @@ class CustonDrawer extends StatelessWidget {
                   child: Row(
                 children: const [
                   FaIcon(FontAwesomeIcons.paperclip),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("AutoSize")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const BatteryPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.batteryHalf),
                   SizedBox(
                     width: 10,
                   ),

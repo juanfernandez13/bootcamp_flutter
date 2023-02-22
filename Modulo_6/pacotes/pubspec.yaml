@@ -42,6 +42,7 @@ dependencies:
   convex_bottom_bar: ^3.2.0
   brasil_fields: ^1.10.0
   intl: ^0.18.0
+  battery_plus: ^3.0.3
 
 dev_dependencies:
   flutter_launcher_icons: "^0.11.0"
