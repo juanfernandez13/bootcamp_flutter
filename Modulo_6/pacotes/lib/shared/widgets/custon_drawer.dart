@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:pacotes/pages/drawer/auto_size.dart';
 import 'package:pacotes/pages/drawer/battery_page.dart';
+import 'package:pacotes/pages/drawer/camera_page.dart';
 import 'package:pacotes/pages/drawer/connectivity_plus_page.dart';
 import 'package:pacotes/pages/drawer/device_info_page.dart';
 import 'package:pacotes/pages/drawer/geolocator_page.dart';
@@ -218,11 +219,30 @@ class CustonDrawer extends StatelessWidget {
               child: SizedBox(
                   child: Row(
                 children: const [
-                  FaIcon(FontAwesomeIcons.camera),
+                  FaIcon(FontAwesomeIcons.qrcode),
                   SizedBox(
                     width: 10,
                   ),
                   Text("QR code")
+                ],
+              )),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const CameraPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  child: Row(
+                children: const [
+                  FaIcon(FontAwesomeIcons.camera),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text("Camera")
                 ],
               )),
             ),
