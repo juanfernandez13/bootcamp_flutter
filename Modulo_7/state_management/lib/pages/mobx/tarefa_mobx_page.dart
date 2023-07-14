@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:state_management/services/lista_tarefa_mobx.dart';
 
-import '../../models/tarefa_model.dart';
-import '../../repository/tarefa_repository.dart';
-
-
-class TarefaProviderPage extends StatefulWidget {
+class TarefaMobxPage extends StatefulWidget {
   @override
-  State<TarefaProviderPage> createState() => _TarefaProviderPageState();
+  State<TarefaMobxPage> createState() => _TarefaMobxPageState();
 }
 
-class _TarefaProviderPageState extends State<TarefaProviderPage> {
+class _TarefaMobxPageState extends State<TarefaMobxPage> {
   var descricaoContoller = TextEditingController();
+  var tarefasStore = ListaTarefasStore();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+        appBar: AppBar(),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
@@ -37,10 +35,7 @@ class _TarefaProviderPageState extends State<TarefaProviderPage> {
                           child: const Text("Cancelar")),
                       TextButton(
                           onPressed: () async {
-                            Provider.of<TarefaRepository>(context,
-                                    listen: false)
-                                .adicionar(
-                                    Tarefa(descricaoContoller.text, false));
+                            tarefasStore.add(descricaoContoller.text);
                             Navigator.pop(context);
                           },
                           child: const Text("Salvar"))
@@ -54,7 +49,7 @@ class _TarefaProviderPageState extends State<TarefaProviderPage> {
           child: Column(
             children: [
               const Text(
-                "Tarefas Provider Store",
+                "Tarefas Mobx Store",
                 style: TextStyle(fontSize: 26),
               ),
               Container(
@@ -66,45 +61,40 @@ class _TarefaProviderPageState extends State<TarefaProviderPage> {
                       "Apenas não concluídos",
                       style: TextStyle(fontSize: 18),
                     ),
-                    Consumer<TarefaRepository>(
-                        builder: (_, tarefaRepository, widget) {
+                    Observer(builder: (context) {
                       return Switch(
-                          value: tarefaRepository.apenasNaoConcluidos,
+                          value: tarefasStore.apenasNaoConcluidos,
                           onChanged: (bool value) {
-                            Provider.of<TarefaRepository>(context,
-                                    listen: false)
-                                .apenasNaoConcluidos = value;
+                            tarefasStore.naoConcluido = value;
                           });
                     })
                   ],
                 ),
               ),
               Expanded(
-                child: Consumer<TarefaRepository>(
-                    builder: (_, tarefaRepository, widget) {
+                child: Observer(builder: (context) {
                   return ListView.builder(
-                      itemCount: tarefaRepository.tarefas.length,
+                      itemCount: tarefasStore.listaTarefas.length,
                       itemBuilder: (BuildContext bc, int index) {
-                        var tarefa = tarefaRepository.tarefas[index];
+                        var tarefa = tarefasStore.listaTarefas[index];
                         return Dismissible(
                           onDismissed:
                               (DismissDirection dismissDirection) async {
-                            Provider.of<TarefaRepository>(context,
-                                    listen: false)
-                                .remover(tarefa.id);
+                            tarefasStore.excluir(tarefa.id);
                           },
                           key: Key(tarefa.descricao),
                           child: ListTile(
                             title: Text(tarefa.descricao),
-                            trailing: Switch(
-                              onChanged: (bool value) async {
-                                tarefa.concluido = value;
-                                Provider.of<TarefaRepository>(context,
-                                        listen: false)
-                                    .alterar(tarefa.id, tarefa.concluido);
-                              },
-                              value: tarefa.concluido,
-                            ),
+                            trailing: Observer(builder: (context) {
+                              return Switch(
+                                onChanged: (bool value) async {
+                                  tarefa.concluido = !tarefa.concluido;
+                                  tarefasStore.alterar(tarefa.id,
+                                      tarefa.descricao, tarefa.concluido);
+                                },
+                                value: tarefa.concluido,
+                              );
+                            }),
                           ),
                         );
                       });
