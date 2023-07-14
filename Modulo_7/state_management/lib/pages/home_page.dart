@@ -2,9 +2,10 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management/pages/getx/getx_page.dart';
 import 'package:state_management/pages/mobx/mobx_page.dart';
 import 'package:state_management/pages/provider/provider_page.dart';
-import 'package:state_management/services/dark_mode_service.dart';
+import 'package:state_management/services/provider/dark_mode_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             children: [
                 const ProviderPage(),
                 const MobxPage(),
-                Container(color: Colors.cyanAccent,),
+                GetxPage(),
             ],
           ))
         ],

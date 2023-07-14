@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:state_management/services/mobx_tarefa_store.dart';
+import 'package:state_management/services/mobx/mobx_tarefa_store.dart';
 
 part 'lista_tarefa_mobx.g.dart';
 

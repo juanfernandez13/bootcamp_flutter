@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:state_management/pages/mobx/tarefa_mobx_page.dart';
-import 'package:state_management/services/store_mobx_contador.dart';
-import '../../services/mobx_contador_random.dart';
+import 'package:state_management/services/mobx/store_mobx_contador.dart';
+import '../../services/mobx/mobx_contador_random.dart';
 
 class MobxPage extends StatefulWidget {
   const MobxPage({super.key});
@@ -24,7 +24,7 @@ class _MobxPageState extends State<MobxPage> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (_) => TarefaMobxPage()));
           },
-          child: Text("Lista de Tarefas")),
+          child: Text("Lista de Tarefas",style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),)),
       Card(
         child: SizedBox(
           height: 250,

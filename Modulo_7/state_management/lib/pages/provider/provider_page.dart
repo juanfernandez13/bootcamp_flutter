@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management/pages/provider/provider_tarefas_page.dart';
-import 'package:state_management/services/contador_random.dart';
+import 'package:state_management/services/provider/contador_random.dart';
 
 class ProviderPage extends StatefulWidget {
   const ProviderPage({super.key});
@@ -13,18 +13,11 @@ class ProviderPage extends StatefulWidget {
 class _ProviderPageState extends State<ProviderPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.grey[200],
+    return SizedBox(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Provider",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-              ),
-            ),
+      
             ExpansionTile(
               title: const Text("Gerador de números"),
               textColor: Colors.black,
@@ -65,7 +58,7 @@ class _ProviderPageState extends State<ProviderPage> {
                     return TarefaProviderPage();
                   }));
                 },
-                child: const Text("tarefas"))
+                child: const Text("tarefas", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),))
           ],
         ));
   }

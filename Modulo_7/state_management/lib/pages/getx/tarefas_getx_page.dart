@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:state_management/services/mobx/lista_tarefa_mobx.dart';
+import 'package:get/get.dart';
+import '../../services/getx/tarefas_controller.dart';
 
-class TarefaMobxPage extends StatefulWidget {
+class TarefaGetxPage extends StatefulWidget {
   @override
-  State<TarefaMobxPage> createState() => _TarefaMobxPageState();
+  State<TarefaGetxPage> createState() => _TarefaGetxPageState();
 }
 
-class _TarefaMobxPageState extends State<TarefaMobxPage> {
+class _TarefaGetxPageState extends State<TarefaGetxPage> {
   var descricaoContoller = TextEditingController();
-  var tarefasStore = ListaTarefasStore();
+  var getxTarefaController = TarefaController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,12 @@ class _TarefaMobxPageState extends State<TarefaMobxPage> {
                           },
                           child: const Text("Cancelar")),
                       TextButton(
-                          onPressed: () async {
-                            tarefasStore.add(descricaoContoller.text);
-                            Navigator.pop(context);
-                          },
-                          child: const Text("Salvar"))
+                              onPressed: () async {
+                                getxTarefaController.adicionar(descricaoContoller.text);
+                                Navigator.pop(context);
+                              },
+                              child: const Text("Salvar"))
+                       
                     ],
                   );
                 });
@@ -49,52 +50,53 @@ class _TarefaMobxPageState extends State<TarefaMobxPage> {
           child: Column(
             children: [
               const Text(
-                "Tarefas Mobx Store",
+                "Tarefas Getx Store",
                 style: TextStyle(fontSize: 26),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Apenas não concluídos",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    Observer(builder: (context) {
-                      return Switch(
-                          value: tarefasStore.apenasNaoConcluidos,
-                          onChanged: (bool value) {
-                            tarefasStore.naoConcluido = value;
-                          });
-                    })
-                  ],
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Apenas não concluídos",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                         Obx(
+                           () {
+                             return Switch(
+                                  value: getxTarefaController.apenasNaoConcluidos.value,
+                                  onChanged: (value) {
+                                    getxTarefaController.apenasNaoConcluidos = value;
+                                  });
+                           }
+                         )
+                      ],
+                   
                 ),
               ),
               Expanded(
-                child: Observer(builder: (context) {
+                child: Obx(() {
                   return ListView.builder(
-                      itemCount: tarefasStore.listaTarefas.length,
+                      itemCount: getxTarefaController.listTarefas.length,
                       itemBuilder: (BuildContext bc, int index) {
-                        var tarefa = tarefasStore.listaTarefas[index];
+                        var tarefa = getxTarefaController.listTarefas[index];
                         return Dismissible(
                           onDismissed:
                               (DismissDirection dismissDirection) async {
-                            tarefasStore.excluir(tarefa.id);
+                            getxTarefaController.excluir(tarefa.id);
                           },
                           key: Key(tarefa.descricao),
                           child: ListTile(
                             title: Text(tarefa.descricao),
-                            trailing: Observer(builder: (context) {
-                              return Switch(
+                            trailing: Switch(
                                 onChanged: (bool value) async {
                                   tarefa.concluido = !tarefa.concluido;
-                                  tarefasStore.alterar(tarefa.id,
+                                  getxTarefaController.alterar(tarefa.id,
                                       tarefa.descricao, tarefa.concluido);
                                 },
                                 value: tarefa.concluido,
-                              );
-                            }),
+                              ),
                           ),
                         );
                       });

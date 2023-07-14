@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management/pages/splash_screen.dart';
-import 'package:state_management/services/contador_random.dart';
-import 'package:state_management/services/dark_mode_service.dart';
-
+import 'package:state_management/services/provider/contador_random.dart';
+import 'package:state_management/services/provider/dark_mode_service.dart';
+import 'package:get/get.dart';
 import 'repository/tarefa_repository.dart';
 
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<DarkModeService>(
         builder: (_, darkModeService, widget) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: darkModeService.isDarkMode ? ThemeData.dark() : ThemeData.light(),
             home: const SplashScreen(),
