@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1034143656997",
+    "project_id": "dio-flutter",
+    "storage_bucket": "dio-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034143656997:android:815870c61b1c74472563cc",
+        "android_client_info": {
+          "package_name": "com.example.firebase_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034143656997-ibm39bnqe66qgk3rvjnoi14k7b1k39kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChNM74ir_yScJaf8sxaXpObzDE_4gwMUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034143656997-ibm39bnqe66qgk3rvjnoi14k7b1k39kv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1034143656997-ds7mikl5duptm0nh0nrpceb0baj2o892.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
